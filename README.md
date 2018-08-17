@@ -2,7 +2,7 @@
 
 > A 2kB CSS Framework
 
-## [Demo](demo)
+## [Demo][demo]
 
 ## Installation
 
