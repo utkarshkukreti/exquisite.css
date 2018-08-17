@@ -1,8 +1,6 @@
-# Exquisite.css
+# Exquisite.css [![Live Demo][demo.svg]][demo]
 
 > A 2kB CSS Framework
-
-## [Demo][demo]
 
 ## Installation
 
@@ -18,5 +16,6 @@ Just add this to your page's `<head>`:
 See Demo link above or [`index.html`][index.html] or [`index.pug`][index.pug] in this repository.
 
 [demo]: https://utkarshkukreti.github.io/exquisite.css
+[demo.svg]: https://img.shields.io/badge/Live%20Demo-brightgreen.svg?longCache=true
 [index.html]: https://github.com/utkarshkukreti/exquisite.css/blob/master/index.html
 [index.pug]: https://github.com/utkarshkukreti/exquisite.css/blob/master/index.pug
