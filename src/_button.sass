@@ -1,0 +1,32 @@
+.button
+  font-size: 1.4rem
+  padding: .6em 1.2em
+  cursor: pointer
+  border-radius: .3rem
+  transition: .2s all
+  border: 1px solid transparent
+  color: white
+
+  // Default
+  background: $blue
+  &:hover, &.is-hovered
+    background: darken($blue, 10%)
+
+  // Colors
+  @each $name, $hex in $colors
+    &.is-#{$name}
+      background: $hex
+      &:hover, &.is-hovered
+        background: darken($hex, 10%)
+    &.is-#{$name}.is-outlined
+      background: none
+      color: $hex
+      border: 1px solid $hex
+      &:hover, &.is-hovered
+        background: $hex
+        color: white
+
+  // Sizes
+  @each $name, $ratio in $sizes
+    &.is-#{$name}
+      font-size: 1.4rem * $ratio

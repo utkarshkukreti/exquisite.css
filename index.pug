@@ -1,0 +1,151 @@
+- const colors = 'Red Yellow Green Blue Violet Purple Pink Black'.split(' ');
+- const sizes = ['Small', 'Normal', 'Medium', 'Large']
+doctype html
+html
+  head
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans|IBM+Plex+Mono")
+    link(rel="stylesheet" href="dist/exquisite.css")
+    link(rel="stylesheet" href="dist/demo.css")
+  body
+    .container
+      h1 Exquisite.css
+      h2 Buttons
+      .row
+        .column
+          h3 Normal
+          for color in colors
+            button.button(class=`is-${color.toLowerCase()}`)= color
+        .column
+          h3 Outlined
+          for color in colors
+            button.button.is-outlined(class=`is-${color.toLowerCase()}`)= color
+      .row
+        .column
+          h3 Sizes
+          for size in sizes
+            button.button(class= size === 'Normal' ? '' : 'is-' + size.toLowerCase())= size
+
+      h2 Button Groups
+      .row
+        .column
+          h3 Normal
+          for color in colors
+            .button-group
+              button.button(class=`is-${color.toLowerCase()}`) Yes
+              button.button(class=`is-${color.toLowerCase()}`) Maybe
+              button.button(class=`is-${color.toLowerCase()}`) No
+        .column
+          h3 Outlined
+          for color in colors
+            .button-group
+              button.button.is-outlined(class=`is-${color.toLowerCase()}`) Yes
+              button.button.is-outlined(class=`is-${color.toLowerCase()}`) Maybe
+              button.button.is-outlined(class=`is-${color.toLowerCase()}`) No
+
+      h2 Forms
+      .row
+        .column
+          h3 Input
+          h4 Colors
+          input.input(type="text" placeholder='Default')
+          input.input.is-green(type="text" placeholder='Green')
+          input.input.is-red(type="text" placeholder='Red')
+        .column
+          h3 Textarea
+          h4 Colors
+          textarea.input(rows=3 placeholder='Default')
+          textarea.input.is-green(rows=3 placeholder='Green')
+          textarea.input.is-red(rows=3 placeholder='Red')
+
+      h2 Tables
+      // https://en.wikipedia.org/wiki/2016_Summer_Olympics_medal_table
+      mixin table(klass, row1 = '', row2 = '', row3 = '', row4 = '', row5 = '')
+        table(class=klass)
+          thead
+            tr
+              th Rank
+              th Country
+              th Gold
+              th Silver
+              th Bronze
+              th Total
+          tbody
+            tr(class=row1)
+              td 1
+              td United States
+              td 46
+              td 37
+              td 38
+              td 121
+            tr(class=row2)
+              td 2
+              td Great Britain
+              td 27
+              td 23
+              td 17
+              td 67
+            tr(class=row3)
+              td 3
+              td China
+              td 26
+              td 18
+              td 26
+              td 70
+            tr(class=row4)
+              td 4
+              td Russia
+              td 19
+              td 17
+              td 19
+              td 55
+            tr(class=row5)
+              td 5
+              td Germany
+              td 17
+              td 10
+              td 15
+              td 42
+      h3 Normal
+      +table('')
+      h3 Bordered
+      +table('is-bordered')
+      h3 Bordered + Hoverable
+      +table('is-bordered is-hoverable')
+      h3 Bordered + Striped
+      +table('is-bordered is-striped')
+      h3 Bordered + Narrow
+      +table('is-bordered is-narrow')
+      h3 Colored Rows
+      +table('is-bordered is-hoverable', 'is-black', 'is-blue', 'is-green', 'is-red', 'is-purple')
+
+      h2 Messages
+      for color in colors
+        h3= color
+        .message(class=`is-${color.toLowerCase()}`)
+          .title
+            | She stared through the window at the stars.
+          .content
+            | The spectacle before us was indeed sublime.
+            | The sky was cloudless and of a deep dark blue.
+            | A red flair silhouetted the jagged edge of a wing.
+            | I watched the storm, so beautiful yet terrific.
+
+      h2 Code
+      pre
+        code.
+            {
+              "scripts": {
+                "start": "run-p start.pug start.sass",
+                "start.pug": "pug --watch --out dist src",
+                "start.sass": "node-sass --watch --recursive --output dist src"
+              },
+              "devDependencies": {
+                "node-sass": "^4.9.2",
+                "npm-run-all": "^4.1.3",
+                "pug": "^2.0.3",
+                "pug-cli": "^1.0.0-alpha6"
+              },
+              "dependencies": {
+                "normalize.css": "^8.0.0"
+              }
+            }

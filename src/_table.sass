@@ -1,0 +1,42 @@
+table
+  border-collapse: collapse
+  border-spacing: 0
+  font-size: 1.4rem
+  width: 100%
+  th, td
+    padding: .9rem
+  &.is-bordered
+    border: 1px solid $gray
+    thead
+      background: $light-gray
+      th:not(:last-child)
+        border-right: 1px solid $gray
+      border-bottom: 1px solid $gray
+    td
+      border: 1px solid $gray
+  &.is-striped
+    tr:nth-child(even)
+      background: $light-gray
+  &.is-hoverable
+    tbody
+      tr
+        cursor: pointer
+        transition: .2s all
+        &:hover
+          background: $light-gray
+  &.is-narrow
+    th, td
+      padding: .7rem
+  tr
+    @each $name, $hex in $colors
+      &.is-#{$name}
+        background: $hex
+        color: white
+        td
+          border-right-color: darken($hex, 3%)
+          border-bottom-color: darken($hex, 3%)
+  &.is-hoverable
+    tr
+      @each $name, $hex in $colors
+        &.is-#{$name}:hover
+          background: lighten($hex, 4%)

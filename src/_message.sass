@@ -1,0 +1,26 @@
+.message
+  border: 2px solid transparent
+  padding: 1.5rem
+  border-radius: .3rem
+  transition: .2s all
+  > .title
+    font-size: 1.777rem
+    font-weight: bold
+    margin-bottom: 1rem
+  @each $name, $hex in $colors
+    &.is-#{$name}
+      $lighten: 0%
+      @if $name == black
+        $lighten: 70%
+      @else if $name == gray
+        $lighten: 15%
+      @else if $name == purple
+        $lighten: 41%
+      @else if $name == pink
+        $lighten: 35%
+      @else
+        $lighten: 45%
+      background: lighten($hex, $lighten)
+      border-color: $hex
+      &:hover
+        background: lighten($hex, $lighten * .8)
