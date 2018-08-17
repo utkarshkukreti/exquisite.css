@@ -10,7 +10,7 @@ Just add this to your page's `<head>`:
 
 ```
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans|IBM+Plex+Mono">
-<link rel="stylesheet" href="./dist/exquisite.css">
+<link rel="stylesheet" href="https://unpkg.com/exquisite.css@0.1.0/dist/exquisite.min.css">
 ```
 
 ## Usage
